@@ -1,9 +1,11 @@
 import java.util.Scanner;
+import logic.logikaKonversi;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
+        logikaKonversi konversi = new logikaKonversi();
 
         while (running){
 
@@ -17,10 +19,19 @@ public class App {
 
             switch (pilihan) {
                 case 1:
-                    System.out.println("Mengkonversi angka kedalam binner");
+                    System.out.print("Masukan angka: ");
+                    int bilangan = scanner.nextInt();
+                    scanner.nextLine();
+                    String hasilKonversi = konversi.convertToBinary(bilangan);
+                    System.out.println("Hasil Konversi: " + hasilKonversi);
                     break;
                 case 2:
-                    System.out.println("Menkonversi kalimat kedalam binner");
+                    System.out.println("Masukan kalimat: ");
+                    String kata = scanner.nextLine();
+                    for (char c : kata.toCharArray()){
+                        System.out.println(konversi.convertCharToBinary(c) + " ");
+                    }
+                    System.out.println();
                     break;
                 case 3:
                     System.out.println("Terimakasih telah menggunakan aplikasi ini");
